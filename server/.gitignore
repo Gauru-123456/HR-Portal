@@ -1,0 +1,33 @@
+node_modules/
+.env
+dist/
+*.log
+
+#📄 node_modules/
+#What is it?
+#A folder created when you run npm install — it contains all your installed libraries.
+
+#Why ignore it?
+#It’s very large, and we don’t need to upload it.
+#Anyone can regenerate it by running npm install.
+
+#🔒 .env
+#What is it?
+#A file that stores sensitive information like passwords, database URLs, API keys.
+
+#Why ignore it?
+#To keep your secrets private — you should never upload .env to GitHub.
+
+#⚙️ dist/
+#What is it?
+#The build output folder created by tools like Vite or Webpack (npm run build).
+
+#Why ignore it?
+#It's auto-generated, and we don't store it in Git — it can be built again when needed.
+
+#📝 *.log
+#What is it?
+#This means “ignore all files that end with .log” — e.g., error.log, debug.log.
+
+#Why ignore it?
+#Log files are used for debugging and are not useful in the Git repository.
