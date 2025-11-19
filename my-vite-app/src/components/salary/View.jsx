@@ -46,19 +46,21 @@ const View = () => {
       {filteredSalaries === null ? (
         <div>Loading ...</div>
       ) : (
-        <div className="overflow-x-auto p-5">
+        <div className="p-4 md:p-6">
           <div className="text-center">
-            <h2 className="text-2xl font-bold">Salary History</h2>
+            <h2 className="text-xl md:text-2xl font-bold">Salary History</h2>
           </div>
 
-          <div className="flex justify-end my-3">
+          <div className="flex justify-end my-4">
             <input
               type="text"
               placeholder="Search By Emp ID"
-              className="border px-2 rounded-md py-0.5 border-gray-300"
+              className="border px-4 py-2 rounded-md border-gray-300 w-full md:w-auto"
               onChange={filterSalaries}
             />
           </div>
+
+          <div className="overflow-x-auto">
 
           {filteredSalaries.length > 0 ? (
             <table className="w-full text-sm text-left text-gray-500">
@@ -92,6 +94,7 @@ const View = () => {
           ) : (
             <div>No Records</div>
           )}
+          </div>
         </div>
       )}
     </>

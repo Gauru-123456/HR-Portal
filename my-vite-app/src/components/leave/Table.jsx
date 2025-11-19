@@ -81,36 +81,42 @@ const Table = () => {
   return (
     <>
     {filteredLeaves ? (
-    <div className="p-6">
+    <div className="p-4 md:p-6">
       <div className="text-center">
-              <h3 className="text-2xl font-bold">Manage Leaves</h3>
-            </div>
-            <div className="flex justify-between items-center mt-4">
-              <input
-                type="text"
-                placeholder="Search By Emp Id"
-                className="px-4 py-0.5 border"
-                onChange={filterByInput}
-             />
-            <div className="space-x-3">
-            <button className="px-2 py-1 bg-teal-600 text-white hover:bg-teal-700"
-            onClick={() => filterByButton('Pending')}>
-              Pending</button>
-
-            <button className="px-2 py-1 bg-teal-600 text-white hover:bg-teal-700"
-            onClick={() => filterByButton('Approved')}>
-              Approved</button>
-
-            <button className="px-2 py-1 bg-teal-600 text-white hover:bg-teal-700"
-            onClick={() => filterByButton('Rejected')}>
-              Rejected</button>
-            </div>
-        </div>
-
-            <div className="mt-3" >  
-          <DataTable columns={columns} data={filteredLeaves} pagination/>
-            </div>
+        <h3 className="text-xl md:text-2xl font-bold">Manage Leaves</h3>
       </div>
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-4">
+        <input
+          type="text"
+          placeholder="Search By Emp Id"
+          className="w-full md:w-auto px-4 py-2 border rounded"
+          onChange={filterByInput}
+        />
+        <div className="flex flex-wrap gap-2 justify-center">
+          <button 
+            className="px-3 py-2 bg-teal-600 text-white hover:bg-teal-700 rounded transition-colors"
+            onClick={() => filterByButton('Pending')}
+          >
+            Pending
+          </button>
+          <button 
+            className="px-3 py-2 bg-teal-600 text-white hover:bg-teal-700 rounded transition-colors"
+            onClick={() => filterByButton('Approved')}
+          >
+            Approved
+          </button>
+          <button 
+            className="px-3 py-2 bg-teal-600 text-white hover:bg-teal-700 rounded transition-colors"
+            onClick={() => filterByButton('Rejected')}
+          >
+            Rejected
+          </button>
+        </div>
+      </div>
+      <div className="mt-6 overflow-x-auto">  
+        <DataTable columns={columns} data={filteredLeaves} pagination responsive/>
+      </div>
+    </div>
      ) : (
       <div>Loading...</div>
     )}

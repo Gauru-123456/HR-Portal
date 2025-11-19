@@ -63,62 +63,67 @@ const Detail = () => {
   return (
     <>
       {leave ? (
-        <div className="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-md shadow-md">
-          <h2 className="text-2xl font-bold mb-8 text-center">Leave Details</h2>
+        <div className="max-w-3xl mx-auto mt-10 bg-white p-4 md:p-8 rounded-md shadow-md">
+          <h2 className="text-xl md:text-2xl font-bold mb-8 text-center">Leave Details</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
+            <div className="flex justify-center">
               <img
                 src={`http://localhost:5000/${leave.employeeId.userId.profileImage}`}
-                className="rounded-full border w-72"
+                className="rounded-full border w-48 h-48 md:w-72 md:h-72 object-cover"
               />
             </div>
             <div>
-              <div className="flex space-x-3 mb-5">
-                <p className="text-lg font-bold">Name:</p>
+              <div className="flex flex-col sm:flex-row sm:space-x-3 mb-4">
+                <p className="text-base md:text-lg font-bold">Name:</p>
                 <p className="font-medium">{leave.employeeId.userId.name}</p>
               </div>
-              <div className="flex space-x-3 mb-5">
-                <p className="text-lg font-bold">Employee ID:</p>
+              <div className="flex flex-col sm:flex-row sm:space-x-3 mb-4">
+                <p className="text-base md:text-lg font-bold">Employee ID:</p>
                 <p className="font-medium">{leave.employeeId.employeeId}</p>
               </div>
-              <div className="flex space-x-3 mb-5">
-                <p className="text-lg font-bold">Leave Type:</p>
-                <p className="font-medium">
-                  {leave.leaveType}
-                </p>
+              <div className="flex flex-col sm:flex-row sm:space-x-3 mb-4">
+                <p className="text-base md:text-lg font-bold">Leave Type:</p>
+                <p className="font-medium">{leave.leaveType}</p>
               </div>
-              <div className="flex space-x-3 mb-5">
-                <p className="text-lg font-bold">Reason:</p>
+              <div className="flex flex-col sm:flex-row sm:space-x-3 mb-4">
+                <p className="text-base md:text-lg font-bold">Reason:</p>
                 <p className="font-medium">{leave.reason}</p>
               </div>
-              <div className="flex space-x-3 mb-5">
-                <p className="text-lg font-bold">Department:</p>
+              <div className="flex flex-col sm:flex-row sm:space-x-3 mb-4">
+                <p className="text-base md:text-lg font-bold">Department:</p>
                 <p className="font-medium">{leave.employeeId.department.dep_name}</p>
               </div>
-              <div className="flex space-x-3 mb-5">
-                <p className="text-lg font-bold">Start Date:</p>
+              <div className="flex flex-col sm:flex-row sm:space-x-3 mb-4">
+                <p className="text-base md:text-lg font-bold">Start Date:</p>
                 <p className="font-medium">{new Date(leave.startDate).toLocaleDateString()}</p>
               </div>
-              <div className="flex space-x-3 mb-5">
-                <p className="text-lg font-bold">End Date:</p>
+              <div className="flex flex-col sm:flex-row sm:space-x-3 mb-4">
+                <p className="text-base md:text-lg font-bold">End Date:</p>
                 <p className="font-medium">{new Date(leave.endDate).toLocaleDateString()}</p>
               </div>
 
-              <div className="flex space-x-3 mb-5">
-                <p className="text-lg font-bold">
+              <div className="flex flex-col sm:flex-row sm:space-x-3 mb-4">
+                <p className="text-base md:text-lg font-bold">
                     {leave.status === 'Pending' ? 'Action:' : 'Status:'}
-                    </p>
-                    {leave.status === 'Pending' ? (
-                        <div className='flex space-x-2'>
-                            <button className='px-2 py-0.5 bg-teal-300 hover:bg-teal-400'
-                            onClick={() => changeStatus(leave._id, "Approved")}>Approve</button>
-                            <button className='px-2 py-0.5 bg-red-300 hover:bg-red-400'
-                            onClick={() => changeStatus(leave._id, "Rejected")}>Reject</button>
-                       </div>
-                    ) :
+                </p>
+                {leave.status === 'Pending' ? (
+                    <div className='flex gap-2 mt-2 sm:mt-0'>
+                        <button 
+                          className='px-3 py-1 bg-teal-300 hover:bg-teal-400 rounded transition-colors'
+                          onClick={() => changeStatus(leave._id, "Approved")}
+                        >
+                          Approve
+                        </button>
+                        <button 
+                          className='px-3 py-1 bg-red-300 hover:bg-red-400 rounded transition-colors'
+                          onClick={() => changeStatus(leave._id, "Rejected")}
+                        >
+                          Reject
+                        </button>
+                    </div>
+                ) : (
                     <p className="font-medium">{leave.status}</p>
-                }
-
+                )}
               </div>
             </div>
           </div>

@@ -65,28 +65,33 @@ const DepartmentList = () => {
     return (
         <>{depLoading ? <div>Loading ...</div> : 
 
-        <div className="p-5">
+        <div className="p-4 md:p-6">
             <div className="text-center">
-            <h3 className="text-10x1 font-bold">Manage Departments</h3>
+                <h3 className="text-xl md:text-2xl font-bold">Manage Departments</h3>
             </div>
-            <div className="flex justify-between items-center">
-            <input type="text" 
-                placeholder="Search by Dep Name" 
-                className="px-6 py-0.5 border"
-                onChange={handleSearch}
-
-           />
-            <Link to="/admin-dashboard/add-department" 
-            className="px-4 py-1 bg-teal-600 rounded text-white">
-                Add new Department
-            </Link>
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-4">
+                <input 
+                    type="text" 
+                    placeholder="Search by Dep Name" 
+                    className="w-full md:w-auto px-4 py-2 border rounded"
+                    onChange={handleSearch}
+                />
+                <Link 
+                    to="/admin-dashboard/add-department" 
+                    className="w-full md:w-auto px-4 py-2 bg-teal-600 rounded text-white text-center hover:bg-teal-700 transition-colors"
+                >
+                    Add new Department
+                </Link>
             </div>
-            <div className="mt-5">
+            <div className="mt-6 overflow-x-auto">
                 <DataTable
-                    columns={columns} data={filteredDepartments} pagination
+                    columns={columns} 
+                    data={filteredDepartments} 
+                    pagination
+                    responsive
                 />
             </div>
-      </div>
+        </div>
       }</>
     )
 }

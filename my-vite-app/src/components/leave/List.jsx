@@ -38,28 +38,29 @@ const List = () => {
   }
 
   return (
-    <div className='p-6'>
+    <div className='p-4 md:p-6'>
       <div className="text-center">
-        <h3 className="text-2xl font-bold">Manage Leaves</h3>
+        <h3 className="text-xl md:text-2xl font-bold">Manage Leaves</h3>
       </div>
 
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-4">
         <input
           type="text"
           placeholder="Search By Emp Name"
-          className="px-4 py-0.5 border"
+          className="w-full md:w-auto px-4 py-2 border rounded"
         />
 
         {user.role === 'employee' &&
         <Link
           to="/employee-dashboard/add-leave"
-          className="px-4 py-1 bg-teal-600 rounded text-white"
+          className="w-full md:w-auto px-4 py-2 bg-teal-600 rounded text-white text-center hover:bg-teal-700 transition-colors"
         >
           Add New Leave
         </Link>
         }
-        </div>
-          <table className="w-full text-sm text-left text-gray-500 mt-6">
+      </div>
+      <div className="overflow-x-auto mt-6">
+        <table className="w-full text-sm text-left text-gray-500">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 border border-gray-200">
                 <tr>
                   <th className="px-6 py-3">SNO</th>
@@ -85,10 +86,9 @@ const List = () => {
                   </tr>
                 ))}
               </tbody>
-            </table>
+        </table>
       </div>
-
-      
+    </div>
   );
 };
 

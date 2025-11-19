@@ -73,8 +73,8 @@ const EditDepartment = () => {
       {depLoading ? (
         <div>Loading....</div>
       ) : (
-        <div className='max-w-3x1 mx-auto mt-10 bg-white p-8 rounded-md shadow-md w-96'>
-          <h2 className='text-2x1 font-bold mb-6'>Edit Department</h2>
+        <div className='max-w-md mx-auto mt-10 bg-white p-4 md:p-8 rounded-md shadow-md'>
+          <h2 className='text-xl md:text-2xl font-bold mb-6'>Edit Department</h2>
 
           {/* ✅ FIXED: added handleSubmit to form */}
           <form onSubmit={handleSubmit}>

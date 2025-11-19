@@ -104,10 +104,10 @@ const fetchEmployee = async () => {
 
     return (
         <>{departments && employee ? (
-        <div className="max-w-4x1 mx-auto mt-10 bg-white p-8 rounded-md shadow-md">
-            <h2 className="text-2x1 font-bold mb-6">Edit Employee</h2>
+        <div className="max-w-4xl mx-auto mt-10 bg-white p-4 md:p-8 rounded-md shadow-md">
+            <h2 className="text-xl md:text-2xl font-bold mb-6">Edit Employee</h2>
             <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md: grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
              {/* Name */}
              <div>
                 <label className="block text-sm font-medium text-gray-700">

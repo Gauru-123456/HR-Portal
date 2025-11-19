@@ -43,8 +43,8 @@ const AddLeave = () => {
 
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 bg-white p-8 rounded-md shadow-md">
-      <h2 className="text-2xl font-bold mb-6">Apply for Leave</h2>
+    <div className="max-w-4xl mx-auto mt-10 bg-white p-4 md:p-8 rounded-md shadow-md">
+      <h2 className="text-xl md:text-2xl font-bold mb-6">Apply for Leave</h2>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col space-y-4">
           {/* Leave Type */}

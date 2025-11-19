@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from "./pages/Login";
 import AdminDashboard from "./pages/AdminDashboard";
 import EmployeeDashboard from "./pages/EmployeeDashboard"
@@ -26,8 +26,7 @@ import AttendanceReport from './components/attendance/AttendanceReport';
 
 function App() {
   return (
-
-       <Routes>
+    <Routes>
           <Route path="/" element={<Navigate to="/admin-dashboard" />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/admin-dashboard" element={
@@ -79,10 +78,8 @@ function App() {
           <Route path="/employee-dashboard/setting" element={<Setting />}></Route>
           
           </Route>
-       </Routes>
-
+    </Routes>
   );
-
 }
 
 export default App;

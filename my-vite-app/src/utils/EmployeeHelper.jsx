@@ -6,34 +6,40 @@ export const columns = [
     {
         name: 'S No',
         selector: (row) => row.sno,
-        width: '70px'
+        width: '70px',
+        center: true,
     },
     {
         name: 'Name',
         selector: (row) => row.name,
-        width: '130px'
+        sortable: true,
+        grow: 1,
+        wrap: true,
     },
     {
         name: 'Image',
         selector: (row) => row.profileImage,
-        width: '90px'
+        width: '80px',
+        center: true,
     },
     {
         name: 'Department',
         selector: (row) => row.dep_name,
         sortable: true,
-        width: '120px'
+        grow: 1,
+        wrap: true,
     },
     {
         name: 'DOB',
         selector: (row) => row.dob,
         sortable: true,
-        width: '130px'
+        width: '120px',
     },
     {
         name: 'Action',
         selector: (row) => row.action,
-        center: 'true'
+        center: true,
+        minWidth: '280px',
     },
 ]
 
@@ -83,23 +89,31 @@ export const getEmployees = async (id) => {
             const navigate = useNavigate()        
         
             return (
-                <div className="flex space-x-3">
-                    <button className="px-3 py-1 bg-teal-600 text-white "
-                    onClick={() => navigate(`/admin-dashboard/employees/${Id}`)}
-                    >View</button>
-        
-                    <button className="px-3 py-1 bg-blue-600 text-white"
-                    onClick={() => navigate(`/admin-dashboard/employees/edit/${Id}`)}        
-                    >Edit</button>
-        
-                    <button className="px-3 py-1 bg-yellow-600 text-white"
-                    onClick={() => navigate(`/admin-dashboard/employees/salary/${Id}`)} 
-        
-                    >Salary</button>
-
-                    <button className="px-3 py-1 bg-red-600 text-white"
-                    onClick={() => navigate(`/admin-dashboard/employees/leaves/${Id}`)}
-                    >Leave</button>
+                <div className="flex flex-wrap gap-1">
+                    <button 
+                        className="px-2 py-1 bg-teal-600 text-white rounded hover:bg-teal-700 transition-colors text-xs"
+                        onClick={() => navigate(`/admin-dashboard/employees/${Id}`)}
+                    >
+                        View
+                    </button>
+                    <button 
+                        className="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-xs"
+                        onClick={() => navigate(`/admin-dashboard/employees/edit/${Id}`)}
+                    >
+                        Edit
+                    </button>
+                    <button 
+                        className="px-2 py-1 bg-yellow-600 text-white rounded hover:bg-yellow-700 transition-colors text-xs"
+                        onClick={() => navigate(`/admin-dashboard/employees/salary/${Id}`)}
+                    >
+                        Salary
+                    </button>
+                    <button 
+                        className="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition-colors text-xs"
+                        onClick={() => navigate(`/admin-dashboard/employees/leaves/${Id}`)}
+                    >
+                        Leave
+                    </button>
                 </div>
             )
         }
