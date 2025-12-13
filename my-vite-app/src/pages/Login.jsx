@@ -2,6 +2,7 @@ import axios from "axios";
 import {useState} from 'react';       //We remove React because we using react 19 latest version
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
+import { API_ENDPOINTS } from "../config/api";
 
 const Login = () => {
    const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ const Login = () => {
       //alert("ok")
       try{
          const response = await axios.post(
-         "http://localhost:5000/api/auth/login",
+         API_ENDPOINTS.AUTH.LOGIN,
          { email, password }
        );
 
