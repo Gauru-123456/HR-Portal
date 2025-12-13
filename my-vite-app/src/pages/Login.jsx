@@ -15,7 +15,7 @@ const Login = () => {
       //alert("ok")
       try{
          const response = await axios.post(
-         "http://localhost:5000/api/auth/login",  //We put 5000 to run backend part 5173 is for frontend only
+         "http://localhost:5000/api/auth/login",
          { email, password }
        );
 
